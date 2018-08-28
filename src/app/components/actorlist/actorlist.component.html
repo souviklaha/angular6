@@ -1,0 +1,43 @@
+<div>
+  <h3>List of Actors</h3>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <th>Name</th>
+      <th>City</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actor of actors; index as ndx">
+        <td *ngIf="row != ndx">{{actor.name}}</td>
+        <td *ngIf="row == ndx"><input type="text" class="form-control" [(ngModel)]="tempActor.name" /></td>
+        
+        <td *ngIf="row != ndx">{{actor.city}}</td>
+        <td *ngIf="row == ndx"><input type="text" class="form-control" [(ngModel)]="tempActor.city" /></td>
+        
+        <td>
+          <span  *ngIf="row != ndx">
+            <button class="btn btn-danger" (click)=deleteActor(ndx)>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </span>
+          
+          <span  *ngIf="row != ndx">
+            <button class="btn btn-primary offset-1" (click)=editActor(ndx)>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </span>        
+
+          <span *ngIf="row == ndx">
+            <button class="btn btn-primary offset-1" (click)=updateActor(ndx)>
+                <i class="fa fa-save" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-primary offset-1" (click)=cancel()>
+                <i class="fa fa-undo" aria-hidden="true"></i>
+            </button>
+          </span>
+
+        </td>        
+      </tr>
+    </tbody>
+  </table>
+</div>
