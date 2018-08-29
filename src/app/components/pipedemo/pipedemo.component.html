@@ -1,0 +1,10 @@
+<h3>Pipe Demo</h3>
+<div>
+  <input type="text" [(ngModel)]="message" />
+  <div>Your Message: {{ message | titlecase }}</div>
+  <div>Today is: {{ today | date:'dd-MM-yyyy'}}</div>
+  <div>The cost is: {{ cost | currency:'GBP' }}</div>
+  <div>The cost is: {{ cost | currency:'\u20b9' }}</div>
+  <div>The Piglatin text is: {{ message | piglatin}}</div>
+  <div>Reverse Message: {{ message | reverseMessage }}</div>
+</div>
